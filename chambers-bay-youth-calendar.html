@@ -83,7 +83,8 @@ details[open] .chev{transform:rotate(45deg)}
 .more li{margin:3px 0}
 .addcal{margin-top:12px;display:flex;flex-direction:column;gap:8px}
 .addlab{font-size:13px;font-weight:600;color:var(--fg2)}
-.add{display:flex;gap:8px;flex-wrap:wrap}
+.add{display:flex;flex-direction:column;gap:8px;max-width:260px}
+.add a{justify-content:center}
 .add a{font-size:15px;font-weight:600;color:var(--blue);background:var(--blue-soft);text-decoration:none;padding:8px 16px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}
 .add a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .foot{font-size:13px;color:var(--fg2);margin:28px 4px 0}
@@ -252,5 +253,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 })();
 </script>
 
+<script>
+/* Android: open the device calendar app's new-event screen directly; other devices keep the Google web link */
+(function(){
+  if(!/Android/i.test(navigator.userAgent)) return;
+  document.querySelectorAll('.add a[href^="https://calendar.google.com"]').forEach(function(a){
+    try{
+      var u=new URL(a.href), q=u.searchParams, d=(q.get('dates')||'').split('/');
+      var ms=function(x){return Date.UTC(+x.slice(0,4),+x.slice(4,6)-1,+x.slice(6,8));};
+      var enc=encodeURIComponent;
+      a.href='intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.item/event'
+        +';S.title='+enc(q.get('text')||'')+';S.description='+enc(q.get('details')||'')
+        +';B.allDay=true;l.beginTime='+ms(d[0])+';l.endTime='+ms(d[1])
+        +';S.browser_fallback_url='+enc(a.href)+';end';
+      a.removeAttribute('target');
+    }catch(e){}
+  });
+})();
+</script>
 </body>
 </html>
