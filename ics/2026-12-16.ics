@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chambers Bay Ward//Youth Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-16-chambers-bay-youth@calendar
+DTSTAMP:20261108T200000Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:Christmas Caroling
+DESCRIPTION:Chambers Bay Ward youth: Young Men and Young Women together. Hot cocoa. Wear comfy or Christmas clothes.
+END:VEVENT
+END:VCALENDAR

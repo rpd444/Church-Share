@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chambers Bay Ward//Youth Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-25-chambers-bay-youth@calendar
+DTSTAMP:20261108T200000Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:Youth Night with Island View
+DESCRIPTION:Chambers Bay Ward youth. Watch a dedication together with Island View. Details coming.
+END:VEVENT
+END:VCALENDAR

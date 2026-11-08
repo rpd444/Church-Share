@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Chambers Bay Ward//Youth Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-18-chambers-bay-youth@calendar
+DTSTAMP:20261108T200000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Thanksgiving Food Drive
+DESCRIPTION:Chambers Bay Ward youth. Bring potatoes\, beans\, canned goods. Drivers needed.
+END:VEVENT
+END:VCALENDAR
