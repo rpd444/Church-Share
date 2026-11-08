@@ -105,8 +105,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .upnext .big .dn{display:block;font-size:36px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
 .upnext .ti{font-size:21px;font-weight:700;letter-spacing:-.01em;display:block}
 .upnext .de{font-size:15px;opacity:.88;display:block;margin-top:2px}
-.upnext .after{border-top:.5px solid rgba(255,255,255,.28);padding-top:11px;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.upnext .after{border-top:.75px solid rgba(255,255,255,.32);padding-top:11px;font-size:15px;display:flex;justify-content:space-between;gap:12px}
 .upnext .after span:first-child{opacity:.8}
+.upnext #u-af{text-align:right}
 .upnext button{all:unset;cursor:pointer}
 .upnext button:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:12px}
 @media (prefers-reduced-motion:reduce){.bar{transition:none}}
@@ -129,7 +130,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="big"><span class="dw" id="u-dw">WED</span><span class="dn" id="u-dn">11</span></div>
       <div><span class="ti" id="u-ti">Laser Tag</span><span class="de" id="u-de">Young Men and Young Women together</span></div>
     </button>
-    <div class="after" id="u-after"><span>After that</span><span id="u-af">Thanksgiving Food Drive · Nov 18</span></div>
+    <div class="after" id="u-after"><span>Next</span><span id="u-af"><b><i>Thanksgiving Food Drive</i></b><br>Nov 18</span></div>
   </div>
   <div class="key" aria-hidden="true" style="margin-bottom:26px"><span><i class="n"></i>Next activity</span><span><i></i>Activity</span><span><i class="t"></i>Tentative</span></div>
 
@@ -229,7 +230,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     document.getElementById('u-go').setAttribute('aria-label','Show '+next.dataset.title+' details');
     var idx=rows.indexOf(next), after=rows[idx+1];
     if(after){ var a=new Date(after.dataset.date+'T00:00:00');
-      document.getElementById('u-af').textContent=after.dataset.title+' · '+SHORT[a.getMonth()]+' '+a.getDate(); }
+      var af=document.getElementById('u-af'); af.textContent=''; var bi=document.createElement('b'), it=document.createElement('i'); it.textContent=after.dataset.title; bi.appendChild(it); af.appendChild(bi); af.appendChild(document.createElement('br')); af.appendChild(document.createTextNode(SHORT[a.getMonth()]+' '+a.getDate())); }
     else document.getElementById('u-after').hidden=true;
     document.getElementById('u-go').addEventListener('click',function(){jump(next)});
     document.getElementById('bar-next').addEventListener('click',function(){jump(next)});
